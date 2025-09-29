@@ -34,7 +34,7 @@ const CHATBOT_CONFIG = {
   },
 
   // Extra: zoom voor open-icoon om transparante padding te compenseren
-  bubbleOpenZoom: 1.25, // fill till button rims
+  bubbleOpenZoom: 1.3, // fill till button rims
 
   // Resize instellingen
   resize: {
