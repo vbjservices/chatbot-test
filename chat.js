@@ -34,7 +34,7 @@ const CHATBOT_CONFIG = {
   },
 
   // Extra: zoom voor open-icoon om transparante padding te compenseren
-  bubbleOpenZoom: 1.25, // zet bv. 1.08 als je PNG een transparante rand heeft
+  bubbleOpenZoom: 1.25, // fill till button rims
 
   // Resize instellingen
   resize: {
