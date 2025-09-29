@@ -5,7 +5,7 @@ const CHATBOT_CONFIG = {
 
   // Bubble iconen
   bubbleIconClosed: "./Assets/ChatImage.png",
-  bubbleIconOpen:   "./Assets/dropDown.png",
+  bubbleIconOpen:   "./Assets/DropDownImage.png",
 
   // Avatar in de chat header
   agentAvatar: "./Assets/ChatImage.png",
@@ -32,6 +32,9 @@ const CHATBOT_CONFIG = {
     text: "",             // bv. "© Dimensio"
     opacity: 0.6
   },
+
+  // Extra: zoom voor open-icoon om transparante padding te compenseren
+  bubbleOpenZoom: 1.25, // zet bv. 1.08 als je PNG een transparante rand heeft
 
   // Resize instellingen
   resize: {
@@ -66,6 +69,12 @@ const CHATBOT_CONFIG = {
     if (!src) { elAvatar.style.display='none'; return; }
     elAvatar.src = bust(src);
     elAvatar.referrerPolicy = "no-referrer";
+  }
+
+  // Zet de gewenste zoom voor het open-icoon als CSS var (voor 100% fill)
+  function applyOpenZoom(){
+    const zoom = Number(CHATBOT_CONFIG.bubbleOpenZoom || 1);
+    elToggle.style.setProperty('--cb-open-zoom', String(zoom > 0 ? zoom : 1));
   }
 
   /* ---------- Markdown renderer ---------- */
@@ -316,6 +325,7 @@ const CHATBOT_CONFIG = {
   setBubbleIcons(CHATBOT_CONFIG.bubbleIconClosed, CHATBOT_CONFIG.bubbleIconOpen);
   preload(CHATBOT_CONFIG.bubbleIconClosed); preload(CHATBOT_CONFIG.bubbleIconOpen);
   setAvatar(CHATBOT_CONFIG.agentAvatar);
+  applyOpenZoom();              // <<-- belangrijk voor 100% vulling
   if (CHATBOT_CONFIG.title) qs('#cbTitle').textContent = CHATBOT_CONFIG.title;
 
   // Watermark + Resize init
