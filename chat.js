@@ -5,7 +5,7 @@ const CHATBOT_CONFIG = {
 
   // Bubble iconen
   bubbleIconClosed: "./Assets/ChatImage.png",
-  bubbleIconOpen:   "./Assets/DropDownImage.png",
+  bubbleIconOpen:   "./Assets/dropDown.png",
 
   // Avatar in de chat header
   agentAvatar: "./Assets/ChatImage.png",
